@@ -1,31 +1,8 @@
-import java.util.*;
+import Lesson_13.PhoneBook;
 
-public class PhoneBook {
+public class PhonesBook {
 
-    Map<String, String[]> phoneNumbers;
-    public PhoneBook() {
-        phoneNumbers = new HashMap<>();
-    }
-
-    public void add(String name, String phoneNumber) {
-        if (phoneNumbers.containsKey(name)) {
-
-            String[] existingNumbers = phoneNumbers.get(name);
-            String[] newNumbers = Arrays.copyOf(existingNumbers, existingNumbers.length + 1);
-
-            newNumbers[existingNumbers.length] = phoneNumber;
-            phoneNumbers.put(name, newNumbers);
-        } else {
-
-            phoneNumbers.put(name, new String[]{phoneNumber});
-        }
-    }
-
-    public String[] get(String name) {
-        return phoneNumbers.getOrDefault(name, new String[0]);
-    }
-
-    public static void main(String[] args) {
+public static void main(String[] args) {
         PhoneBook book = new PhoneBook();
         book.add("Иванов", "123-456-7890");
         book.add("Петров", "987-654-3210");
